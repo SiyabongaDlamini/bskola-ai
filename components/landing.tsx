@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-import { isAnonymousMode } from '@/lib/auth/provider'
 import type { ModelSelectorData } from '@/lib/types/model-selector'
 
 import { Button } from '@/components/ui/button'
@@ -14,15 +13,16 @@ interface LandingPageProps {
   isCloudDeployment?: boolean
   libraryAvailable?: boolean
   modelSelectorData?: ModelSelectorData
+  isGuest?: boolean
 }
 
 export function LandingPage({
   isCloudDeployment,
   libraryAvailable,
-  modelSelectorData
+  modelSelectorData,
+  isGuest = false
 }: LandingPageProps) {
   const [showSearch, setShowSearch] = useState(false)
-  const isGuest = isAnonymousMode()
 
   return (
     <div className="flex flex-col min-h-svh">

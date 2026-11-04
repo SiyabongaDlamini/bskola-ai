@@ -8,6 +8,7 @@ import { LandingPage } from '@/components/landing'
 export default async function Page() {
   const userId = await getCurrentUserId()
   const isCloudDeployment = process.env.MORPHIC_CLOUD_DEPLOYMENT === 'true'
+  const isGuest = isAnonymousMode() || !userId
   const libraryAvailable = !isAnonymousMode()
   const modelSelectorData = await getModelSelectorData()
 
@@ -17,9 +18,9 @@ export default async function Page() {
     modelSelectorData
   }
 
-  if (userId) {
+  if (!isGuest) {
     return <Chat isGuest={false} {...common} />
   }
 
-  return <LandingPage {...common} />
+  return <LandingPage isGuest={isGuest} {...common} />
 }
