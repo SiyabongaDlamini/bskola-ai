@@ -40,6 +40,12 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
         </Link>
 
         <div className="flex items-center gap-2">
+          <Link
+            href="/teach"
+            className="text-sm font-medium text-foreground/70 hover:text-teaching-accent transition-colors"
+          >
+            Teach
+          </Link>
           {isRootPage && (
             <Button
               variant="outline"

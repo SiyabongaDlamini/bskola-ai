@@ -36,6 +36,9 @@
   --sidebar-accent-foreground: oklch(0 0 0);
   --sidebar-border: oklch(0.94 0 0);
   --sidebar-ring: oklch(0 0 0);
+  --teaching-accent: oklch(0.55 0.18 264.53);
+  --teaching-accent-foreground: oklch(1 0 0);
+  --teaching-muted: oklch(0.94 0.96 1);
   --font-sans: Geist, sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Geist Mono, monospace;
@@ -93,6 +96,9 @@
   --sidebar-accent-foreground: oklch(1 0 0);
   --sidebar-border: oklch(0.32 0 0);
   --sidebar-ring: oklch(0.72 0 0);
+  --teaching-accent: oklch(0.58 0.17 260.84);
+  --teaching-accent-foreground: oklch(1 0 0);
+  --teaching-muted: oklch(0.23 0.26 0.3);
   --font-sans: Geist, sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Geist Mono, monospace;
@@ -145,6 +151,9 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-teaching-accent: var(--teaching-accent);
+  --color-teaching-accent-foreground: var(--teaching-accent-foreground);
+  --color-teaching-muted: var(--teaching-muted);
 
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
