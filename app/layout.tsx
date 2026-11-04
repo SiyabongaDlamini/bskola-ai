@@ -34,23 +34,23 @@ const fontSans = FontSans({
   variable: '--font-sans'
 })
 
-const title = 'Morphic'
+const title = 'BSkola'
 const description =
-  'A fully open-source AI-powered answer engine with a generative UI.'
+  'BSkola is an AI-powered learning platform. Ask questions, get grounded answers with sources, and build your knowledge with Athenar, your AI tutor.'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://morphic.sh'),
+  metadataBase: new URL('https://bskola.ai'),
   title,
   description,
   openGraph: {
     title,
-    description
+    description,
+    type: 'website'
   },
   twitter: {
     title,
     description,
-    card: 'summary_large_image',
-    creator: '@miiura'
+    card: 'summary_large_image'
   }
 }
 

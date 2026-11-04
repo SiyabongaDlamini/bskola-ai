@@ -1,7 +1,7 @@
 'use client'
 
-// import Link from 'next/link' // No longer needed directly here for Sign In button
 import React, { useState } from 'react'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import type { AppUser } from '@/lib/auth/types'
@@ -34,8 +34,10 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
           'w-full'
         )}
       >
-        {/* This div can be used for a logo or title on the left if needed */}
-        <div></div>
+        {/* Brand */}
+        <Link href="/" className="flex items-center gap-1.5">
+          <span className="font-bold text-lg tracking-tight">BSkola</span>
+        </Link>
 
         <div className="flex items-center gap-2">
           {isRootPage && (

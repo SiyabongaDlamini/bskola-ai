@@ -3,6 +3,7 @@ import { isAnonymousMode } from '@/lib/auth/provider'
 import { getModelSelectorData } from '@/lib/model-selector/get-model-selector-data'
 
 import { Chat } from '@/components/chat'
+import { LandingPage } from '@/components/landing'
 
 export default async function Page() {
   const userId = await getCurrentUserId()
@@ -10,12 +11,15 @@ export default async function Page() {
   const libraryAvailable = !isAnonymousMode()
   const modelSelectorData = await getModelSelectorData()
 
-  return (
-    <Chat
-      isGuest={!userId}
-      isCloudDeployment={isCloudDeployment}
-      libraryAvailable={libraryAvailable}
-      modelSelectorData={modelSelectorData}
-    />
-  )
+  const common = {
+    isCloudDeployment,
+    libraryAvailable,
+    modelSelectorData
+  }
+
+  if (userId) {
+    return <Chat isGuest={false} {...common} />
+  }
+
+  return <LandingPage {...common} />
 }

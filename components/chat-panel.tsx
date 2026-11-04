@@ -467,7 +467,7 @@ export function ChatPanel({
         <div className="mb-6 md:mb-10 flex flex-col items-center gap-2 md:gap-4">
           <IconBlinkingLogo className="size-12" />
           <h1 className="text-xl md:text-2xl font-medium text-foreground">
-            What would you like to know?
+            Ask Athenar anything
           </h1>
         </div>
       )}
