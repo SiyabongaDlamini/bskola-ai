@@ -23,14 +23,14 @@ import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { Spinner } from '@/components/ui/spinner'
 
-interface TeachingItem {
+export interface TeachingItem {
   id: string
   title: string
   content: string
   detail?: string
 }
 
-interface TeachingSection {
+export interface TeachingSection {
   type:
     | 'objectives'
     | 'concepts'
@@ -42,7 +42,7 @@ interface TeachingSection {
   items: TeachingItem[]
 }
 
-interface TeachingBoard {
+export interface TeachingBoard {
   id: string
   topic: string
   title: string
@@ -217,9 +217,13 @@ function generateFallbackBoard(topic: string): TeachingBoard {
 
 interface TeachingBoardProps {
   initialTopic?: string
+  onBoardCreated?: (board: TeachingBoard) => void
 }
 
-export function TeachingBoard({ initialTopic }: TeachingBoardProps) {
+export function TeachingBoard({
+  initialTopic,
+  onBoardCreated
+}: TeachingBoardProps) {
   const [board, setBoard] = useState<TeachingBoard | null>(null)
   const [topic, setTopic] = useState(initialTopic ?? '')
   const [level, setLevel] = useState('Beginner')
@@ -308,14 +312,16 @@ Keep explanations concise, clear, and beginner-friendly. Do not include any intr
         throw new Error("Athenar's response didn't parse into teachable sections. Try again.")
       }
 
-      setBoard({
+      const newBoard: TeachingBoard = {
         id: `board-${Date.now()}`,
         topic: topicValue,
         title: `${topicValue} — Lesson Board`,
         subject,
         level,
         sections
-      })
+      }
+      onBoardCreated?.(newBoard)
+      setBoard(null)
     } catch (err) {
       if (err instanceof DOMException && err.name === 'AbortError') return
       const message =
@@ -325,7 +331,7 @@ Keep explanations concise, clear, and beginner-friendly. Do not include any intr
     } finally {
       setGenerating(false)
     }
-  }, [level, subject])
+  }, [level, subject, onBoardCreated])
 
   const regenerateBoard = useCallback(() => {
     if (board?.topic) {

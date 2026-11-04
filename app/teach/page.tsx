@@ -1,4 +1,4 @@
-import { TeachingBoard } from '@/components/teaching-boards/teaching-board'
+import TeachPageClient from '@/components/teaching-boards/teach-page-client'
 
 export const metadata = {
   title: 'Teach | BSkola',
@@ -7,5 +7,5 @@ export const metadata = {
 }
 
 export default function TeachPage() {
-  return <TeachingBoard />
+  return <TeachPageClient />
 }
